@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragment_first_animations">
+
+    <fragment
+        android:id="@id/fragment_main"
+        android:name="myapp.todo.MainFragment"
+        android:label="Main"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_MainFragment_to_ActorListFragment"
+            app:destination="@id/fragment_actor_list" />
+
+        <action
+            android:id="@+id/action_MainFragment_to_CameraFragment"
+            app:destination="@+id/fragment_camera"
+            />
+
+        <action
+            android:id="@+id/action_MainFragment_to_AnimationFragment"
+            app:destination="@id/fragment_first_animations"/>
+    </fragment>
+
+    <fragment
+        android:id="@id/fragment_camera"
+        android:name="myapp.todo.camera.CameraFragment"
+        tools:layout="@layout/fragment_camera"
+        android:label="camera label"
+        />
+
+
+    <fragment
+        android:id="@id/container"
+        android:name="myapp.auth.login.LoginFragment"
+        android:label="@string/login"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_LoginFragment_MainFragment"
+            app:destination="@id/fragment_main"
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@id/fragment_actor_list"
+        android:name="myapp.todo.history.actors.ActorListFragment"
+        android:label="Actor List"
+        tools:layout="@layout/fragment_actor_list">
+
+        <action
+            android:id="@+id/action_ActorListFragment_to_ActorEditFragment"
+            app:destination="@id/fragment_actor_edit" />
+    </fragment>
+    <fragment
+        android:id="@id/fragment_actor_edit"
+        android:name="myapp.todo.history.actor.ActorEditFragment"
+        android:label="@string/item_edit_fragment_label"
+        tools:layout="@layout/fragment_actor_edit">
+
+        <action
+            android:id="@+id/action_ItemEditFragment_to_ItemListFragment"
+            app:destination="@id/fragment_actor_list" />
+    </fragment>
+
+    <fragment
+        android:id="@id/fragment_first_animations"
+        android:name="myapp.todo.animations.FirstFragment"
+        android:label="first fragment animations"
+        tools:layout="@layout/animations_fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/fragment_second_animations"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+    <fragment
+        android:id="@id/fragment_second_animations"
+        android:name="myapp.todo.animations.SecondFragment"
+        android:label="second fragment to first"
+        tools:layout="@layout/animations_fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/fragment_first_animations"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
+    </fragment>
+</navigation>
